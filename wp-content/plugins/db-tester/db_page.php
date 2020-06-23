@@ -3,6 +3,8 @@
     /**Műkódése: ez az init_db_tester_page az index.php-ban van definiálva.
      * Ha valaki nem ezen keresztűl jött be az oldalra, akkor ez nem létezik,
      * így automatikus kidobja a blugin a bejövőt.
+     * 
+     * Csak akkor fut, hadefiniálca van az init függvény
      */
     if (!function_exists('init_db_tester_page') ){
             exit('No access...');
