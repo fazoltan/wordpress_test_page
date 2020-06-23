@@ -1,0 +1,15 @@
+
+# Az apacs számára tartalmaz utasításokat ez a file
+# Ezzel adjuk meg, hogy az összes kérést az index.php-re kerüljön.
+# BEGIN WordPress
+# A `BEGIN WordPress` és az `END WordPress` sorok közötti tartalom dinamikusan generált, és csak WordPress szűrők módosíthatják. Bárminemű kézi módosítás e kettő sor között el fog veszni.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /fesk/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /fesk/index.php [L]
+</IfModule>
+
+# END WordPress
