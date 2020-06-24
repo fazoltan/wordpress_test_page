@@ -109,6 +109,14 @@ function add_subsribe( $atts, $content , $name){
 
 add_shortcode('subsribe','add_subsribe');
 
+//Filtert készítése
+function title_filter($title){
+    return 'Ez a cím';
+}
+
+//A filtert mindere rá lehet tenni, ami generájla a tratalmat és a tratalmon tovább modósítani.
+add_filter('the_title', 'title_filter');
+
 /*function add_subscibe_form($atts){
     return json_encode($atts);
 }
