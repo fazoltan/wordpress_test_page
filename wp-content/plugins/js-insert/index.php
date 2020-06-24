@@ -24,6 +24,15 @@ function add_my_scripts(){
         true//$in_footer : Hova tegye a sciptet? a fejlécbe(false) vagy a láblécbe(ture). Alapértelmezetten false.
     );
 
+    wp_enqueue_script(
+        'b-handler',//a scipt egyedi nevének megadása
+        plugins_url('js-insert/js/bootstrap.bundle.min.js'),//src, scipt hol található egyedileg
+        ['jquery'],//array $deps : Ebben a tömbe megadhatjuk, hogy a js fájlunk elött mit töltsön be. pl.: jQuary.js
+        'v4.5.0',//$ver a sriptünknek mi a verziója. Ezzel a böngésző kesselését tudjuk fejlesztés közben
+        //kijátszani. Így mindig a legujabb verzót fogja a böngészőnk betölteni. Fejlesztés után erre már nincs szüksége
+        true//$in_footer : Hova tegye a sciptet? a fejlécbe(false) vagy a láblécbe(ture). Alapértelmezetten false.
+    );
+
     //php az oldal betöltődésekor már tud inicializálni java változokat ezzel a függvénnyel:
     //Ezek csak az oldal betöltődéskor jönnek léter (inicializálás), amikor a wordperss összerakja az oldalt
     //, ha az oldal közben is szertnék változokat átadni, ahhoz már ajax kell
@@ -45,6 +54,14 @@ function add_my_scripts(){
             //string $media = 'all' ) Melyik médiára legyen alkalmazva pl.: print. alap értelmezette all
     );
 
+    wp_enqueue_style( 
+            'b-style',//string $handle, sítuslap nevének a megadása 
+            plugins_url('js-insert/css/bootstrap.min.css'),//string $src = '',az elérési út megadása 
+            array(),//string[] $deps = array(), függőségek megadása 
+            'v4.5.0'//string|bool|null $ver = false, verzió megadása
+            //string $media = 'all' ) Melyik médiára legyen alkalmazva pl.: print. alap értelmezette all
+    );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'add_my_scripts' );
@@ -61,7 +78,25 @@ function add_subsribe( $atts, $content , $name){
     ?>
 
     <div class="urgent <?php echo $atts['cssclass']; /* Így egyedi sosztájt is tudunk hozzadni*/?>"> 
-        <?php echo $content; ?>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h3><?php echo $content?></h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <form class="col-8" >
+                <div class="form-group">
+                <label for="exampleInputName2">Name</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail2">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+                </div>
+                <button type="submit" class="btn btn-default">Send invitation</button>
+            </form>
+        </div>
+        
     </div>
     <?php
 
