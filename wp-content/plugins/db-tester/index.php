@@ -47,8 +47,8 @@ function my_action_callback(){
 }
 
 //Kliens oldalon az ajax acionk neve: my_action
-//add_action('wp_ajax_my_action', 'my_action_callback'); //wp_ajax_+sajat_akcio_nev
-add_action('wp_ajax_nopriv_my_action', 'my_action_callback'); //ezzel mindenki eltudja érni az akciot
+add_action('wp_ajax_my_action', 'my_action_callback'); //wp_ajax_+sajat_akcio_nev
+//add_action('wp_ajax_nopriv_my_action', 'my_action_callback'); //ezzel mindenki eltudja érni az akciot
 
 
 //Amikor a fejlécet töltjük be az ajaxurl-t echozzuk ki
